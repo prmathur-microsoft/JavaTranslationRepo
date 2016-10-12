@@ -1,0 +1,81 @@
+*** newlib/libc/unix/Makefile.in~	2011-12-19 16:03:49.000000000 -0600
+--- newlib/libc/unix/Makefile.in	2014-10-14 17:04:04.477355230 -0500
+***************
+*** 54,62 ****
+  LIBRARIES = $(noinst_LIBRARIES)
+  ARFLAGS = cru
+  lib_a_AR = $(AR) $(ARFLAGS)
+  lib_a_LIBADD =
+! am__objects_1 = lib_a-getcwd.$(OBJEXT) lib_a-pread.$(OBJEXT) \
+  	lib_a-pwrite.$(OBJEXT) lib_a-sigset.$(OBJEXT)
+  am__objects_2 = lib_a-ttyname.$(OBJEXT) lib_a-ttyname_r.$(OBJEXT)
+  am__objects_3 = lib_a-basename.$(OBJEXT) lib_a-dirname.$(OBJEXT) \
+  	lib_a-getlogin.$(OBJEXT) lib_a-getpass.$(OBJEXT) \
+--- 54,62 ----
+  LIBRARIES = $(noinst_LIBRARIES)
+  ARFLAGS = cru
+  lib_a_AR = $(AR) $(ARFLAGS)
+  lib_a_LIBADD =
+! am__objects_1 = lib_a-pread.$(OBJEXT) \
+  	lib_a-pwrite.$(OBJEXT) lib_a-sigset.$(OBJEXT)
+  am__objects_2 = lib_a-ttyname.$(OBJEXT) lib_a-ttyname_r.$(OBJEXT)
+  am__objects_3 = lib_a-basename.$(OBJEXT) lib_a-dirname.$(OBJEXT) \
+  	lib_a-getlogin.$(OBJEXT) lib_a-getpass.$(OBJEXT) \
+***************
+*** 70,78 ****
+  @USE_LIBTOOL_FALSE@	$(am__objects_4)
+  lib_a_OBJECTS = $(am_lib_a_OBJECTS)
+  LTLIBRARIES = $(noinst_LTLIBRARIES)
+  libunix_la_LIBADD =
+! am__objects_5 = getcwd.lo pread.lo pwrite.lo sigset.lo
+  am__objects_6 = ttyname.lo ttyname_r.lo
+  am__objects_7 = basename.lo dirname.lo getlogin.lo getpass.lo \
+  	getpwent.lo getut.lo
+  @ELIX_LEVEL_1_FALSE@@ELIX_LEVEL_2_FALSE@@ELIX_LEVEL_3_FALSE@am__objects_8 = $(am__objects_6) \
+--- 70,78 ----
+  @USE_LIBTOOL_FALSE@	$(am__objects_4)
+  lib_a_OBJECTS = $(am_lib_a_OBJECTS)
+  LTLIBRARIES = $(noinst_LTLIBRARIES)
+  libunix_la_LIBADD =
+! am__objects_5 = pread.lo pwrite.lo sigset.lo
+  am__objects_6 = ttyname.lo ttyname_r.lo
+  am__objects_7 = basename.lo dirname.lo getlogin.lo getpass.lo \
+  	getpwent.lo getut.lo
+  @ELIX_LEVEL_1_FALSE@@ELIX_LEVEL_2_FALSE@@ELIX_LEVEL_3_FALSE@am__objects_8 = $(am__objects_6) \
+***************
+*** 249,257 ****
+  top_srcdir = @top_srcdir@
+  AUTOMAKE_OPTIONS = cygnus
+  INCLUDES = $(NEWLIB_CFLAGS) $(CROSS_CFLAGS) $(TARGET_CFLAGS)
+  GENERAL_SOURCES = \
+- 	getcwd.c 	\
+  	pread.c 	\
+  	pwrite.c 	\
+  	sigset.c
+  
+--- 249,256 ----
+***************
+*** 266,277 ****
+  	getpass.c 	\
+  	getpwent.c 	\
+  	getut.c
+  
+! @ELIX_LEVEL_1_FALSE@@ELIX_LEVEL_2_FALSE@@ELIX_LEVEL_3_FALSE@ELIX_SOURCES = $(ELIX_2_SOURCES) $(ELIX_4_SOURCES)
+! @ELIX_LEVEL_1_FALSE@@ELIX_LEVEL_2_FALSE@@ELIX_LEVEL_3_TRUE@ELIX_SOURCES = $(ELIX_2_SOURCES)
+! @ELIX_LEVEL_1_FALSE@@ELIX_LEVEL_2_TRUE@ELIX_SOURCES = $(ELIX_2_SOURCES)
+! @ELIX_LEVEL_1_TRUE@ELIX_SOURCES = 
+  libunix_la_LDFLAGS = -Xcompiler -nostdlib
+  @USE_LIBTOOL_TRUE@noinst_LTLIBRARIES = libunix.la
+  @USE_LIBTOOL_TRUE@libunix_la_SOURCES = $(GENERAL_SOURCES) $(ELIX_SOURCES)
+  @USE_LIBTOOL_FALSE@noinst_DATA = 
+--- 265,274 ----
+  	getpass.c 	\
+  	getpwent.c 	\
+  	getut.c
+  
+! ELIX_SOURCES =
+! 
+  libunix_la_LDFLAGS = -Xcompiler -nostdlib
+  @USE_LIBTOOL_TRUE@noinst_LTLIBRARIES = libunix.la
+  @USE_LIBTOOL_TRUE@libunix_la_SOURCES = $(GENERAL_SOURCES) $(ELIX_SOURCES)
+  @USE_LIBTOOL_FALSE@noinst_DATA = 
